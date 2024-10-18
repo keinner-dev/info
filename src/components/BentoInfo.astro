@@ -1,0 +1,46 @@
+---
+import SectionContainer from "@components/SectionContainer.astro";
+
+const ARTICLES = [
+  {
+    title: "Qué esperar de un proceso de selección",
+    contentId: "selection-process",
+    class: "bg-yellow-100 text-ij-yellow md:h-80 lg:h-96 md:col-span-2",
+  },
+  {
+    title: "Los puestos emergentes que van a petarlo",
+    contentId: "emergent-positions",
+    class: "bg-red-100 text-ij-red md:col-start-3 md:row-span-2 md:h-full",
+  },
+  {
+    title: "Las opinión de las empresas",
+    contentId: "company-opinion",
+    class: "bg-sky-800 text-ij-blue md:h-80 lg:h-96",
+  },
+  {
+    title: "¿Sin experiencia? Destaca en las entrevistas",
+    contentId: "no-experience",
+    class: "bg-green-100 text-ij-green md:h-80 lg:h-96",
+  },
+];
+---
+
+<SectionContainer>
+  <h2 class="text-ij-black text-2xl pb-6">Prepárate para ganar</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:p-2">
+    {
+      ARTICLES.map(({ class: className, title, contentId }) => (
+        <button
+          class:list={[
+            "aspect-square w-full h-full p-4 rounded-2xl flex justify-start transition hover:scale-105 md:hover:z-10",
+            className,
+          ]}
+        >
+          <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
+            {title}
+          </span>
+        </button>
+      ))
+    }
+  </div>
+</SectionContainer>
